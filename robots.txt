@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deft-gelato-dcd6a9.netlify.app/sitemap.xml
+Sitemap: https://rsantosadvogado.com.br/sitemap.xml
