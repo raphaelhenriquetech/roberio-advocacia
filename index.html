@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="HtnOo6n9WRWlaTME8NTHOub0OeM3pbrZuOpYYn-nDbM" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
     <title>Advogado Especialista em INSS, Previdenciário e Inventários | Robério Advocacia</title>
@@ -252,6 +253,25 @@
             transition: all .3s;
         }
         .nav-btn:hover { background: var(--gold); color: var(--bg); }
+
+        /* ── HAMBURGER ── */
+        .ham {
+            display: none;
+            flex-direction: column; justify-content: center; align-items: center;
+            gap: 5px; width: 40px; height: 40px;
+            background: none; border: 1px solid var(--line2);
+            cursor: pointer; padding: 0; flex-shrink: 0;
+            transition: border-color .25s;
+        }
+        .ham:hover { border-color: var(--gold); }
+        .ham span {
+            display: block; width: 20px; height: 1.5px;
+            background: var(--text); border-radius: 2px;
+            transition: transform .35s var(--ease), opacity .25s;
+        }
+        .ham[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .ham[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .ham[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 
         /* ── HERO ── */
@@ -640,6 +660,20 @@
 
         /* Tablet — iPad standard landscape & iPad Air/Pro portrait */
         @media (max-width: 1024px) {
+            .ham { display: flex; }
+            .nav-links {
+                position: fixed; inset: 0;
+                background: rgba(8,8,9,.97);
+                backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+                flex-direction: column; align-items: center; justify-content: center;
+                gap: 3rem; list-style: none;
+                opacity: 0; visibility: hidden; pointer-events: none;
+                z-index: 490;
+                transition: opacity .35s var(--ease), visibility .35s;
+            }
+            .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; }
+            .nav-links a { font-size: 1.35rem; letter-spacing: .18em; color: var(--text); }
+            .nav-links a::after { display: none; }
             .hero-stats { flex-wrap: wrap; gap: 2rem; }
             .img-frame { display: none; }
             .img-wrap { padding-bottom: 2rem; }
@@ -675,7 +709,6 @@
         @media (max-width: 768px) {
             #nav { padding: 1.1rem 5%; }
             .logo { font-size: 1.35rem; }
-            .nav-links { display: none; }
             .nav-btn { padding: .55rem 1rem; font-size: .56rem; letter-spacing: .1em; }
 
             #hero { grid-template-columns: 1fr; min-height: auto; }
