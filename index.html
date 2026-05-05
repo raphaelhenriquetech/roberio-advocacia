@@ -252,7 +252,7 @@
             transition: all .3s;
         }
         .nav-btn:hover { background: var(--gold); color: var(--bg); }
-        @media (max-width: 768px) { .nav-links { display: none; } }
+
 
         /* ── HERO ── */
         #hero {
@@ -621,7 +621,7 @@
 
         /* ── RESPONSIVE ── */
 
-        /* Small desktop */
+        /* Small desktop / iPad Pro landscape */
         @media (max-width: 1200px) {
             .hero-left { padding: 9rem 5% 5rem 8%; }
             #areas, #cta { padding: 6rem 8%; }
@@ -629,27 +629,58 @@
             footer { padding: 2.5rem 8%; }
         }
 
-        /* Tablet */
+        /* iPad Landscape (1024-1200) — keep hero image, use 3-col grid */
+        @media (max-width: 1200px) and (min-width: 1025px) {
+            #hero { grid-template-columns: 1.2fr .8fr; }
+            .hero-h1 { font-size: clamp(2.6rem, 4.5vw, 4rem); }
+            .hero-sub { max-width: 400px; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            #sobre { grid-template-columns: 1fr 1.1fr; }
+        }
+
+        /* Tablet — iPad standard landscape & iPad Air/Pro portrait */
         @media (max-width: 1024px) {
-            #hero { grid-template-columns: 1fr; min-height: auto; }
-            .hero-right { display: none; }
-            .hero-left { padding: 9rem 8% 5rem; min-height: 100vh; min-height: 100dvh; }
             .hero-stats { flex-wrap: wrap; gap: 2rem; }
-            .grid-3 { grid-template-columns: 1fr; }
-            #sobre { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 8%; }
             .img-frame { display: none; }
-            .about-photo { aspect-ratio: 4/3; }
             .img-wrap { padding-bottom: 2rem; }
             .img-badge { right: 0; bottom: 0; }
         }
 
-        /* Tablet portrait / large mobile */
+        /* iPad landscape (1024px wide) */
+        @media (max-width: 1024px) and (orientation: landscape) {
+            #hero { grid-template-columns: 1.15fr .85fr; min-height: 100vh; }
+            .hero-left { padding: 8rem 5% 4rem 8%; }
+            .hero-h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
+            .hero-sub { max-width: 380px; font-size: .92rem; }
+            .hero-right { display: block; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            #sobre { grid-template-columns: 1fr 1.1fr; gap: 4rem; padding: 6rem 8%; }
+            .about-photo { aspect-ratio: 3/4; }
+        }
+
+        /* iPad portrait (768-1024px wide) */
+        @media (max-width: 1024px) and (orientation: portrait) {
+            #hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-right { display: none; }
+            .hero-left { padding: 9rem 8% 5rem; min-height: 100vh; min-height: 100dvh; }
+            .hero-h1 { font-size: clamp(2.8rem, 5.5vw, 4rem); }
+            .hero-sub { max-width: 520px; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            #sobre { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 8%; }
+            .about-photo { aspect-ratio: 16/10; }
+            .btn-gold { width: auto; }
+        }
+
+        /* Tablet portrait / large mobile — below 768px */
         @media (max-width: 768px) {
             #nav { padding: 1.1rem 5%; }
             .logo { font-size: 1.35rem; }
+            .nav-links { display: none; }
             .nav-btn { padding: .55rem 1rem; font-size: .56rem; letter-spacing: .1em; }
 
-            .hero-left { padding: 8rem 5% 4.5rem; }
+            #hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-right { display: none; }
+            .hero-left { padding: 8rem 5% 4.5rem; min-height: 100vh; min-height: 100dvh; }
             .hero-h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); margin-bottom: 1.6rem; }
             .hero-sub { font-size: .92rem; max-width: 100%; margin-bottom: 2.8rem; }
             .hero-actions { gap: 1.2rem; margin-bottom: 3rem; }
@@ -659,9 +690,11 @@
 
             #areas { padding: 5rem 5%; }
             .s-top { margin-bottom: 2.5rem; }
+            .grid-3 { grid-template-columns: 1fr; }
             .card { padding: 2rem 1.6rem 1.8rem; }
 
-            #sobre { padding: 5rem 5%; gap: 2.5rem; }
+            #sobre { grid-template-columns: 1fr; padding: 5rem 5%; gap: 2.5rem; }
+            .about-photo { aspect-ratio: 4/3; }
 
             #cta { padding: 5rem 5%; }
             #cta::before { font-size: 10rem; }
