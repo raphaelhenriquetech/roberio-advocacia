@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://roberioadvocacia.com.br/sitemap.xml
+Sitemap: https://deft-gelato-dcd6a9.netlify.app/sitemap.xml
